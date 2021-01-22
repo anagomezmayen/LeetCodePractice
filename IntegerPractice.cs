@@ -63,12 +63,39 @@ namespace LeetCodePractice
 
 
             }
-        
+            /// <summary>
+            /// You are climbing a staircase. It takes n steps to reach the top.
+            /// Each time you can either climb 1 or 2 steps.In how many distinct ways can you climb to the top?
+            /// </summary>
+            /// <param name="n"></param>
+            /// <returns></returns>
+            static public int ClimbStairs(int n)
+            {
+                if (n == 1)
+                    return 1;
+                if (n == 2)
+                    return 2;
+                if (n == 3)
+                    return 3;
 
-        static public void Main(string[] args)
+                int[] results = new int[n + 1];
+                results[0] = 0;
+                results[1] = 1;
+                results[2] = 2; //base cases
+
+                for (int i = 3; i <= n; i++)
+                {
+                    results[i] = results[i - 1] + results[i - 2];
+                }
+
+                return results[n];
+            }
+
+
+            static public void Main(string[] args)
             {
                 //Console.WriteLine(Reverse(-2147483412));
-                Console.WriteLine(IsPalindrome(100));
+                Console.WriteLine(ClimbStairs(4));
 
 
 //                Console.WriteLine(Reverse(1534236469));
