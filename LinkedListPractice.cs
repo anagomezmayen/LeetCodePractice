@@ -110,11 +110,78 @@ namespace LeetCodePractice
 			{
 				r.next = new ListNode(remanent, null);
 			}
+			return result;
+
+		}
+
+		static public ListNode MergeTwoLists(ListNode l1, ListNode l2)
+		{
+			if (l1 == null && l2 == null)
+				return l1;
+			if (l1 == null)
+				return l2;
+			if (l2 == null)
+				return l1;
+
+			ListNode a = l1, b = l2, x = null, result=null;
+
+			if (b.val <= a.val)
+			{
+				x = b;
+				b = b.next;
+
+            }
+            else
+            {
+				x = a;
+				a = a.next;
+            }
+
+			result = x;
+
+			Console.WriteLine(x.val);
+			while (a!= null && b != null)
+			{
+				if (a.val <= b.val)
+				{
+					x.next = a;
+					a = a.next;
+					x = x.next;
+				}
+				else
+				{
+					x.next = b;
+					b = b.next;
+					x = x.next;
+				}
 
 
+			}
+
+            if (a != null)
+                x.next = a;
+            if (b != null)
+                x.next = b;
 
 			return result;
 
+		}
+
+		static public void Main(string[] args)
+        {
+			ListNode l1 = new ListNode(2, null);
+			//l1.next = new ListNode(2, new ListNode(4,null));
+
+			ListNode l2 = new ListNode(-1, null);
+			//l2.next = new ListNode(3, new ListNode(4, null));
+
+			ListNode r=MergeTwoLists(l1, l2);
+
+			while (r != null)
+            {
+				Console.Write(r.val + " -> ");
+				r = r.next;
+            }
 
 		}
 	}

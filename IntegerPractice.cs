@@ -92,14 +92,14 @@ namespace LeetCodePractice
             }
 
 
-            static public void Main(string[] args)
-            {
-                //Console.WriteLine(Reverse(-2147483412));
-                Console.WriteLine(ClimbStairs(4));
+//            static public void Main(string[] args)
+//            {
+//                //Console.WriteLine(Reverse(-2147483412));
+//                Console.WriteLine(ClimbStairs(4));
 
 
-//                Console.WriteLine(Reverse(1534236469));
-            }
+////                Console.WriteLine(Reverse(1534236469));
+//            }
         }
     }
 }
